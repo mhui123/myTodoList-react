@@ -79,7 +79,6 @@ function TodoCreate(){
     const onToggle = () => setOpen(!open);
     const onChange = e => setValue(e.target.value);
     const onSubmit = e => {
-        e.preventDefault();
         dispatch({
             type: 'CREATE',
             todo: {
@@ -90,7 +89,7 @@ function TodoCreate(){
         });
         setValue('');
         setOpen(false);
-        nextId.current += 1;
+        nestId.current += 1;
     };
 
     return(
@@ -99,10 +98,10 @@ function TodoCreate(){
                 <InsertFormPositoner>
                     <InsertForm onSubmit={onSubmit}>
                         <Input 
-                        autoFocus 
-                        placeholder="할 일을 입력후 엔터"
-                        onChange={onChange}
-                        value={value}
+                            autoFocus
+                            placeholder="할 일을 입력후 엔터"
+                            onChange={onChange}
+                            value={value}
                         />
                     </InsertForm>
                 </InsertFormPositoner>
