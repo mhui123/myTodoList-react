@@ -55,12 +55,27 @@ const Text = styled.div`
             color:  #ced4da;
         `}
 `;
-
+/*
+function TodoItem({ id, done, text})  {
+    return(
+        <TodoItemBlock>
+            <CheckCircle done={done}>
+                {done && <MdDone/>}
+            </CheckCircle>
+            <Text done={done}>{text}</Text>
+            <Remove>
+                <MdDelete/>
+            </Remove>
+        </TodoItemBlock>
+    );
+}
+*/
 function TodoItem({ id, done, text})  {
     const dispatch = useTodoDispatch();
-    const onToggle = () => dispatch({ type: 'TOGGLE', id});
-    const onRemove = () => dispatch({ type: 'REMOVE', id});
+    const onToggle = () => dispatch({ type:'TOGGLE', id});
+    const onRemove = () => dispatch({ type:'REMOVE', id});
 
+    
     return(
         <TodoItemBlock>
             <CheckCircle done={done} onClick={onToggle}>
@@ -73,5 +88,4 @@ function TodoItem({ id, done, text})  {
         </TodoItemBlock>
     );
 }
-
 export default React.memo(TodoItem);
